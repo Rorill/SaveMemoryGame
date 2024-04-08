@@ -214,7 +214,8 @@ function saveGameState() {
 
   localStorage.setItem("memoryGameState", JSON.stringify(gameState)); // Enregistrement de l'état du jeu dans le localStorage
   alert("État du jeu sauvegardé avec succès!"); // Affichage d'un message de confirmation
-
+  
+  
   startTimer(); // Reprend le timer là où il s'était arrêté
 }
 
@@ -245,6 +246,7 @@ function loadGameState() {
       timerDisplay.textContent = `${minutes < 10 ? "0" + minutes : minutes}:${secondes < 10 ? "0" + secondes : secondes}`;
       
       // Reprendre le timer là où il s'était arrêté
+      clearInterval(timerInterval);    
       startTimer();
 
       // Réinitialisation du jeu avec les paires de cartes chargées
